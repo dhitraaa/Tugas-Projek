@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Basis Data - UBP Karawang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background: #0066cc;
+            padding: 10px;
+            text-align: center;
+        }
+        nav button {
+            background: white;
+            color: #0066cc;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        nav button:hover {
+            background: #004080;
+            color: white;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #004080;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog Basis Data</h1>
+        <p>Website ini dibuat untuk tugas Mata Kuliah Basis Data <br>
+           Link kampus: <a href="https://www.ubpkarawang.ac.id" target="_blank">www.ubpkarawang.ac.id</a>
+        </p>
+    </header>
+
+    <nav>
+        <button onclick="showPost(1)">Post 1</button>
+        <button onclick="showPost(2)">Post 2</button>
+        <button onclick="showPost(3)">Post 3</button>
+        <button onclick="showPost(4)">Post 4</button>
+    </nav>
+
+    <section id="content">
+        <h2>Selamat Datang di Blog Basis Data</h2>
+        <p>Silakan pilih postingan dari menu di atas untuk membaca materi.</p>
+    </section>
+
+    <script>
+        function showPost(postNumber) {
+            let content = document.getElementById("content");
+            let posts = {
+                1: `<h2>Post 1 : Apa yang anda harapkan dari MK Basis Data</h2>
+                    <p>Saya berharap dari mata kuliah Basis Data dapat memahami konsep dasar penyimpanan data, 
+                       pengelolaan database, serta bagaimana cara mengaplikasikan dalam dunia nyata.</p>`,
+                2: `<h2>Post 2 : Apa itu Basis Data</h2>
+                    <p>Basis Data adalah kumpulan data yang terorganisir secara sistematis sehingga dapat 
+                       diakses, dikelola, dan diperbarui dengan mudah.</p>`,
+                3: `<h2>Post 3 : Apa itu Conseptual DB</h2>
+                    <p>Conceptual Database adalah model data yang menjelaskan hubungan antar data 
+                       dalam bentuk abstrak, biasanya menggunakan diagram ERD (Entity Relationship Diagram).</p>`,
+                4: `<h2>Post 4 : Apa itu Physical Model</h2>
+                    <p>Physical Model adalah representasi basis data yang menggambarkan bagaimana data 
+                       disimpan secara fisik di dalam sistem penyimpanan komputer.</p>`
+            };
+            content.innerHTML = posts[postNumber];
+        }
+    </script>
+</body>
+</html>
