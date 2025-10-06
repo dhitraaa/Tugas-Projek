@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Basis Data - UBP Karawang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background: #0066cc;
+            padding: 10px;
+            text-align: center;
+        }
+        nav button {
+            background: white;
+            color: #0066cc;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        nav button:hover {
+            background: #004080;
+            color: white;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #004080;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog Basis Data</h1>
+        <p>Website ini dibuat untuk tugas Mata Kuliah Basis Data <br>
+           Link kampus: <a href="https://www.ubpkarawang.ac.id" target="_blank">www.ubpkarawang.ac.id</a>
+        </p>
+    </header>
+
+    <nav>
+        <button onclick="showPost(1)">Post 1</button>
+        <button onclick="showPost(2)">Post 2</button>
+    </nav>
+
+    <section id="content">
+        <h2>Selamat Datang di Blog Basis Data</h2>
+        <p>Silakan pilih postingan dari menu di atas untuk membaca materi.</p>
+    </section>
+
+    <script>
+        function showPost(postNumber) {
+            let content = document.getElementById("content");
+            let posts = {
+                1: `<h2>Post 1 : Buat tatacara installasi 1 DBMS (mysql)</h2>
+                    <img src="youtube.png" alt="YouTube Logo" href="https://youtu.be/Ln6pEazLjV4" onclick="window.open('https://youtu.be/Ln6pEazLjV4', '_blank')">
+                    <p>click logo youtube untuk memasuki video tugas yang di upload di youtube!.</p>`,
+                2: `<h2>Post 2 : Apa itu attribute, entitas dan relasi dalam ERD.</h2>
+                    <p>- Attribute adalah karakteristik atau properti yang digunakan untuk mendeskripsikan entitas dalam basis data. Contohnya, dalam entitas "Mahasiswa", atributnya bisa berupa "Nama", "NIM", dan "Alamat".</p>
+                    <br>
+                    <p>- Entitas adalah objek atau konsep yang memiliki keberadaan mandiri dalam basis data. Contohnya, "Mahasiswa", "Dosen", dan "Mata Kuliah" adalah entitas dalam sistem akademik.</p>
+                    <br>
+                    <p>- Relasi adalah hubungan antara dua atau lebih entitas dalam basis data. Contohnya, relasi antara entitas "Mahasiswa" dan "Mata Kuliah" bisa berupa "Mengambil", yang menunjukkan bahwa seorang mahasiswa mengambil mata kuliah tertentu.</p>`
+            };
+            content.innerHTML = posts[postNumber];
+        }
+    </script>
+</body>
+</html>
