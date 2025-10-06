@@ -91,7 +91,7 @@
             let posts = {
                 1: `<h2>Post 1 : Buat tatacara installasi 1 DBMS (mysql)</h2>
                     <img src="youtube.png" alt="YouTube Logo" href="https://youtu.be/Ln6pEazLjV4" onclick="window.open('https://youtu.be/Ln6pEazLjV4', '_blank')">
-                    <p>click logo youtube untuk memasuki video tugas yang di upload di youtube!.</p>`,
+                    <p>click logo youtube untuk memasuki video tugas yang di upload di youtube !!!</p>`,
                 2: `<h2>Post 2 : Apa itu attribute, entitas dan relasi dalam ERD.</h2>
                     <p>- Attribute adalah karakteristik atau properti yang digunakan untuk mendeskripsikan entitas dalam basis data. Contohnya, dalam entitas "Mahasiswa", atributnya bisa berupa "Nama", "NIM", dan "Alamat".</p>
                     <br>
