@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Basis Data - UBP Karawang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background: #0066cc;
+            padding: 10px;
+            text-align: center;
+        }
+        nav button {
+            background: white;
+            color: #0066cc;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        nav button:hover {
+            background: #004080;
+            color: white;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #004080;
+        }
+        
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background: #004080;
+            color: white;
+        }
+        tr:hover {
+            background: #eef5ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog Basis Data</h1>
+        <p>Website ini dibuat untuk tugas Mata Kuliah Basis Data <br>
+           Link kampus: <a href="https://www.ubpkarawang.ac.id" target="_blank">www.ubpkarawang.ac.id</a>
+        </p>
+    </header>
+
+    <nav>
+        <button onclick="showPost(1)">Post 1</button>
+        <button onclick="showPost(2)">Post 2</button>
+    </nav>
+
+    <section id="content">
+        <h2>Selamat Datang di Blog Basis Data</h2>
+        <p>Silakan pilih postingan dari menu di atas untuk membaca materi.</p>
+    </section>
+
+    <script>
+        function showPost(postNumber) {
+            let content = document.getElementById("content");
+            let posts = {
+                1: `
+                    <h2>Post 1 : Jelaskan apa yang dimaksud dengan Primary Key, Foreign Key, dan Candidate Key beserta contohnya!</h2>
+                    <p><b>Primary Key</b> adalah atribut atau kumpulan atribut yang secara unik mengidentifikasi setiap baris dalam tabel basis data. Setiap tabel hanya boleh memiliki satu Primary Key.</p>
+                    <table>
+                        <tr><th>No</th><th>Nama Tabel</th><th>Primary Key</th><th>Keterangan</th></tr>
+                        <tr><td>1</td><td>Mahasiswa</td><td>NIM</td><td>Setiap mahasiswa memiliki NIM unik</td></tr>
+                        <tr><td>2</td><td>Dosen</td><td>NIP</td><td>Setiap dosen memiliki NIP unik</td></tr>
+                        <tr><td>3</td><td>MataKuliah</td><td>Kode_MK</td><td>Kode unik untuk tiap mata kuliah</td></tr>
+                        <tr><td>4</td><td>Transaksi</td><td>ID_Transaksi</td><td>Setiap transaksi unik</td></tr>
+                        <tr><td>5</td><td>Buku</td><td>Kode_Buku</td><td>Kode unik tiap buku</td></tr>
+                    </table>
+                    <br>
+                    <p><b>Foreign Key</b> adalah atribut atau kumpulan atribut dalam satu tabel yang merujuk ke Primary Key di tabel lain, digunakan untuk menghubungkan dua tabel.</p>
+                    <table>
+                        <tr><th>No</th><th>Nama Tabel</th><th>Foreign Key</th><th>Relasi Dengan</th></tr>
+                        <tr><td>1</td><td>Nilai</td><td>NIM</td><td>Mahasiswa(NIM)</td></tr>
+                        <tr><td>2</td><td>Nilai</td><td>Kode_MK</td><td>MataKuliah(Kode_MK)</td></tr>
+                        <tr><td>3</td><td>Transaksi</td><td>ID_Pelanggan</td><td>Pelanggan(ID_Pelanggan)</td></tr>
+                        <tr><td>4</td><td>Detail_Pemesanan</td><td>ID_Pemesanan</td><td>Pemesanan(ID_Pemesanan)</td></tr>
+                        <tr><td>5</td><td>Karyawan</td><td>ID_Departemen</td><td>Departemen(ID_Departemen)</td></tr>
+                    </table>
+                    <br>
+                    <p><b>Candidate Key</b> adalah atribut atau kumpulan atribut yang dapat dijadikan Primary Key karena memiliki nilai unik untuk setiap baris dalam tabel. Tabel dapat memiliki lebih dari satu Candidate Key.</p>
+                    <table>
+                        <tr><th>No</th><th>Nama Tabel</th><th>Candidate Key</th><th>Keterangan</th></tr>
+                        <tr><td>1</td><td>Mahasiswa</td><td>NIM, Email</td><td>Keduanya unik</td></tr>
+                        <tr><td>2</td><td>Dosen</td><td>NIP, No_HP</td><td>Bisa jadi pengenal unik</td></tr>
+                        <tr><td>3</td><td>Pegawai</td><td>ID_Pegawai, No_KTP</td><td>Keduanya unik</td></tr>
+                        <tr><td>4</td><td>Barang</td><td>Kode_Barang, Nama_Barang</td><td>Dapat menjadi pengenal unik</td></tr>
+                        <tr><td>5</td><td>Pelanggan</td><td>ID_Pelanggan, Email</td><td>Dua atribut unik untuk identifikasi</td></tr>
+                    </table>
+                `,
+
+                2: `
+                    <h2>Post 2 : Jelaskan pengertian relasi pada ERD dan mengapa Many-to-Many tidak baik digunakan?</h2>
+                    <p><b>Relasi dalam ERD (Entity-Relationship Diagram)</b> adalah hubungan antara dua atau lebih entitas yang menunjukkan bagaimana entitas tersebut berinteraksi satu sama lain dalam sistem basis data. Relasi ini membantu menggambarkan struktur data dan aturan bisnis yang berlaku.</p>
+                    <p><b>Jenis relasi dalam ERD:</b></p>
+                    <ul>
+                        <li><b>One-to-One (1 : 1)</b> – satu entitas berhubungan dengan satu entitas lain. Contoh: Satu mahasiswa memiliki satu kartu identitas.</li>
+                        <li><b>One-to-Many (1 : M)</b> – satu entitas berhubungan dengan banyak entitas lain. Contoh: Satu dosen mengajar banyak mata kuliah.</li>
+                        <li><b>Many-to-Many (M : M)</b> – banyak entitas berhubungan dengan banyak entitas lain. Contoh: Banyak mahasiswa mengambil banyak mata kuliah.</li>
+                    </ul>
+                    <p><b>Mengapa Many-to-Many tidak baik digunakan?</b></p>
+                    <ol>
+                        <li>Kompleksitas: Relasi Many-to-Many dapat membuat desain basis data menjadi lebih kompleks dan sulit dipahami.</li>
+                        <li>Redundansi Data: Dapat menyebabkan duplikasi data yang tidak perlu, yang dapat mengakibatkan inkonsistensi data.</li>
+                        <li>Kinerja: Operasi pada relasi Many-to-Many sering kali memerlukan tabel penghubung (junction table), yang dapat memperlambat kinerja query.</li>
+                        <li>Kesulitan dalam Pemeliharaan: Memperbarui atau menghapus data dalam relasi Many-to-Many bisa menjadi rumit dan rentan terhadap kesalahan.</li>
+                        <li>Normalisasi: Relasi Many-to-Many sering kali melanggar prinsip normalisasi basis data, yang bertujuan untuk mengurangi redundansi dan meningkatkan integritas data.</li>
+                    </ol>
+                    <p>Oleh karena itu, dalam praktik terbaik desain basis data, relasi Many-to-Many biasanya dipecah menjadi dua relasi One-to-Many dengan menggunakan tabel penghubung untuk mengelola hubungan tersebut dengan lebih efisien.</p>
+                `
+            };
+            content.innerHTML = posts[postNumber];
+        }
+    </script>
+</body>
+</html>
